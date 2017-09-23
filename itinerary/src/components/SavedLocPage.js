@@ -3,72 +3,69 @@
 */
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ListView, TouchableHighlight, Image } from 'react-native'; 
+import { StyleSheet, View, Text, ScrollView, TouchableHighlight, Image } from 'react-native'; 
 import { Icon } from 'react-native-elements';
-
+import { Tile } from './Tile.js';
 class SavedLocPage extends Component {
+	state = { //mock info 
+	  locations: [
+        {'locationName':'New York, New York' , 'departureDate': 'June, 19, 2018', 'transportationMode': 'Plane' },
+        {'locationName':'Denver, Colorado' , 'departureDate': 'January, 1, 2980', 'transportationMode': 'Plane' },
+        {'locationName':'New York, New York' , 'departureDate': 'September, 12, 1983', 'transportationMode': 'Plane' }
+	  ]
+	}
     render() {
         return ( 
-        	<View style = {styles.container}>
+      		<View style = {styles.container}>
               <View style = {styles.itemTagWrapper}>
-              <View style = {styles.tile}>
-              <View style = {styles.imageWrapper}>
-                //<Image
-        			//style={styles.circle}
-        			//source={require('./Michigan.png')}
-      			///>
-      			<Text style = {styles.itemTag}>Saved Page</Text>
-      			</View>
-      			</View>
-              </View >
-        	</View >
+              <ScrollView>
+              	<Tile>
+                  <View style = {styles.imageWrapper}>
+              	    <Image
+      			      style={styles.circle}
+       			      source={require('./Michigan.png')} // get request for image tied to location name
+    			    />
+      			    <Text style = {styles.LocTag}>Saved Page</Text>
+      			    <Text style = {styles.infoTag}>Info on the location</Text>
+      			  </View>
+      		    </Tile>
+      		  </ScrollView>
+            </View >
+       	  </View >
         );
     }
 }
   const styles = StyleSheet.create({
-      container:{
+
+    container:{
         flex: 1,
         backgroundColor: '#FFCA28',
         alignItems: 'center',
         justifyContent: 'center'
-      },
-      itemTag: {
+    },
+    LocTag: {
       	fontSize: 48, 
         color: "#FFCA28",
-        padding:10,
-      },
-      itemTagWrapper:{
+    },
+    itemTagWrapper:{
         alignItems: 'center',
         justifyContent: 'center',
-      },
-      button:{
-      	width: 70,
-      	height: 50,
-      },
-      circle: {
+    },
+    circle: {
   		height: 160,
   		width: 160,
   		borderRadius: 80,
   		padding: 15,
-	  },
-	  imageWrapper:{
+    },
+    imageWrapper:{
 	  	padding:10,
 	  	justifyContent: 'center',
         alignItems: 'center',
-	  },
-	  tile:{
-    	borderRadius: 2,
-     	borderColor: '#ddd',
-    	backgroundColor: 'white',
-    	borderBottomWidth: 0,
-    	margin: 10,
-    	shadowColor: '#000',
-    	shadowOffset: { width: 0, height: 2 },
-    	shadowOpacity: 0.1,
-    	shadowRadius: 2,
-    	elevation: 3,
-    	
-  	  },
+    },
+    infoTag: {
+      	fontSize: 20, 
+        color: "#C8C8C8",
+    },
  });
   
 export default SavedLocPage;
