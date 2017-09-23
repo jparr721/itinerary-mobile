@@ -37,7 +37,7 @@
      tabBarOptions: {
        showIcon: true,
        showLabel: false,
-       activeTintColor: '#f48c42',
+       activeTintColor: '#FFCA28',
     },
    }
  );
