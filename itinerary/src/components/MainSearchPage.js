@@ -112,3 +112,4 @@ class MainSearchPage extends Component {
 }
 
 export default MainSearchPage;
+
