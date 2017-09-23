@@ -3,12 +3,20 @@
 */
 
 import React, { Component } from 'react';
-import { Text } from 'react-native'; 
+import { StyleSheet, View, Text } from 'react-native'; 
 
 class SavedLocPage extends Component {
     render() {
-        return ( <Text> Saved Page </Text>
-        )
+        return ( <View style = {style.container}>
+        	<Text> Saved Page </Text>
+        	</View >
+        );
     }
 }
+  const style = StyleSheet.create({
+      container:{
+      flex: 1,
+      flexDirection: 'row',
+    },
+  });
 export default SavedLocPage;

@@ -4,11 +4,12 @@
 
  import React, { Component } from 'react';
  import { Text } from 'react-native'; 
+
  class MainSearchPage extends Component {
    render() {
      return (
        <Text>Main Page</Text>
-     )
+     );
    }
  }
 
