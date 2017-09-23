@@ -3,6 +3,7 @@ import { Modal, Text, TouchableOpacity, View, StyleSheet, Button } from 'react-n
 import { Icon } from 'react-native-elements';
 import { setSearchResultsPageModalVisible } from '../actions/index.js'
 import {connect} from 'react-redux';
+import { MyButton } from './MyButton.js';
 
 const styles = StyleSheet.create({
   header: {
@@ -21,6 +22,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 20
   },
+  buttonText:{
+    color: '#FFCA28',
+    fontSize: 20,
+  }
 });
 
 class SearchResultsPageContainer extends Component {
@@ -56,11 +61,11 @@ class SearchResultsPageContainer extends Component {
           </View>
         </Modal>
         <View style={styles.submitButton}>
-          <Button
-            onPress={() => {this.props.displaySeacrhResultsModal()}}
-            title="Find a trip"
-            color='#FFCA28'
-          />
+          <TouchableOpacity onPress={() => {this.props.displaySeacrhResultsModal()}}>
+            <MyButton >
+              <Text style={styles.buttonText}>Find Trips</Text>
+            </MyButton>
+          </TouchableOpacity>
         </View>
       </View>
 
