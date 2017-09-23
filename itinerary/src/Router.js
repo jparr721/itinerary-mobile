@@ -9,6 +9,7 @@
  // Import Screen Files here
  // Example: import SavePage from './components/SavePage';
  import MainSearchPage from './components/MainSearchPage'
+ import SavedLocPage from './components/SavedLocPage'
 
  const Router = TabNavigator(
    {
@@ -19,15 +20,29 @@
          tabBarIcon: ({tintColor}) => (
            <Icon
             name="home"
-            type ="material-community"
+            type="material-community"
             size={28}
             color={tintColor}/>
          ),
        }
      },
-
+ 
      // Place the definition of your screen here, following the
      // model above
+     SavedLocPage:{
+      screen: SavedLocPage,
+      path: '',
+      navigationOptions: {
+        tabBarIcon: ({tintColor}) => (
+          <Icon 
+           name="folder-multiple"
+           type="material-community"
+           size={28}
+           color={tintColor}/>
+         ),
+       }
+     },
+     //
    },
    {
      tabBarPosition: 'bottom',
