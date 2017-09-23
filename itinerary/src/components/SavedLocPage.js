@@ -9,27 +9,36 @@ import { Tile } from './Tile.js';
 class SavedLocPage extends Component {
 	state = { //mock info 
 	  locations: [
-        {'locationName':'New York, New York' , 'departureDate': 'June, 19, 2018', 'transportationMode': 'Plane' },
-        {'locationName':'Denver, Colorado' , 'departureDate': 'January, 1, 2980', 'transportationMode': 'Plane' },
-        {'locationName':'New York, New York' , 'departureDate': 'September, 12, 1983', 'transportationMode': 'Plane' }
+	  {Id: 'Generate', 'Info': ['locationName':'New York, New York', 'departureDate': 'June, 19, 2018', 'transportationMode': 'Plane']},
+      {Id: 'Generate1', 'Info': ['locationName':'Michigan, Allendale', 'departureDate': 'September, 23, 2056', 'transportationMode': 'Car']},
 	  ]
 	}
     render() {
         return ( 
       		<View style = {styles.container}>
               <View style = {styles.itemTagWrapper}>
+
               <ScrollView>
+               {
+
+                this.state.locations.map((item, index) ⇒ (
+
               	<Tile>
                   <View style = {styles.imageWrapper}>
               	    <Image
       			      style={styles.circle}
        			      source={require('./Michigan.png')} // get request for image tied to location name
     			    />
-      			    <Text style = {styles.LocTag}>Saved Page</Text>
-      			    <Text style = {styles.infoTag}>Info on the location</Text>
+      			    <Text style = {styles.LocTag}>{item.Info.LocationName}</Text>
+      			    <Text style = {styles.infoTag}>{item.Info.departureDate}</Text>
+      			    <Text style = {styles.infoTag}>{item.Info.transportaionMode}</Text>
       			  </View>
       		    </Tile>
+
+
+      		   }
       		  </ScrollView>
+
             </View >
        	  </View >
         );
@@ -44,7 +53,7 @@ class SavedLocPage extends Component {
         justifyContent: 'center'
     },
     LocTag: {
-      	fontSize: 48, 
+      	fontSize: 40, 
         color: "#FFCA28",
     },
     itemTagWrapper:{
