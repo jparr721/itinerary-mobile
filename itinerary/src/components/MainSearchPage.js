@@ -2,15 +2,40 @@
  * Created by deonj on 9/22/2017.
  */
 
- import React, { Component } from 'react';
- import { Text } from 'react-native'; 
+import React, { Component } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 
- class MainSearchPage extends Component {
-   render() {
-     return (
-       <Text>Main Page</Text>
-     );
-   }
- }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#FFCA28',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  logoWrapper: {
+    height: 150,
+    width: 150,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  logo: {
+    color: 'white',
+    fontSize: 32,
+    shadowColor: '#000',
+  }
+});
 
- export default MainSearchPage;
+class MainSearchPage extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.logoWrapper}>
+          <Text style={styles.logo}>Itinerary</Text>
+        </View>
+      </View>
+    )
+  }
+}
+
+export default MainSearchPage;
+
