@@ -1,10 +1,12 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Tile = (props) => {
   return (
     <View style={styles.containerStyle}>
-      {props.children}
+      <TouchableOpacity onPress={this._onPressButton}>
+        {props.children}
+      </TouchableOpacity>
     </View>
   );
 };
@@ -21,6 +23,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 3,
+    padding:40,
   },
 });
 
