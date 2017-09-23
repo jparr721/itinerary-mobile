@@ -5,6 +5,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Image, Button } from 'react-native';
 import { Icon } from 'react-native-elements';
+import { SearchResultsPage } from './SearchResultsPage';
 
 const styles = StyleSheet.create({
   container: {
@@ -48,10 +49,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingBottom: 50
   },
-  submitButton: {
-    alignItems: 'center',
-    margin: 20
-  },
+
 });
 
 class MainSearchPage extends Component {
@@ -77,13 +75,7 @@ class MainSearchPage extends Component {
             underlineColorAndroid="white"/>
         </View>
 
-        <View style={styles.submitButton}>
-          <Button
-            onPress={() => console.log("pressed")}
-            title="Find a trip"
-            color='#FFCA28'
-          />
-        </View>
+        <SearchResultsPage />
 
         <View style={styles.logoWrapper}>
           <Icon
