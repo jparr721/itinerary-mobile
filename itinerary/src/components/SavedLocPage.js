@@ -29,6 +29,20 @@ class SavedLocPageContainer extends Component {
 		      			    <Text style = {styles.infoTag}>{item.Info.departureDate}</Text>
 		      			    <Text style = {styles.infoTag}>{item.Info.transportationMode}</Text>
 		      			  </View>
+		      			  <View style = {styles.Justify}>
+		      			  <Icon
+                  			name={"fullscreen"}
+                  			type="material-community"
+                  			size={30}
+                  			color="#C8C8C8"
+                		  />
+		      			  <Icon
+                  			name={"more"}
+                  			type="material-community"
+                  			size={30}
+                  			color="#C8C8C8"
+                		  />
+                		  </View>
 		      		    </Tile>
 					))
       		  	  }
@@ -68,6 +82,12 @@ class SavedLocPageContainer extends Component {
     infoTag: {
       	fontSize: 20,
         color: "#C8C8C8",
+    },
+    Justify:{
+    	flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
     },
  });
 
