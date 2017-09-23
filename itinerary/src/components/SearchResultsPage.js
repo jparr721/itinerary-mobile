@@ -3,6 +3,7 @@ import { Modal, Text, TouchableOpacity, View, StyleSheet, Button } from 'react-n
 import { Icon } from 'react-native-elements';
 import { setSearchResultsPageModalVisible } from '../actions/index.js'
 import {connect} from 'react-redux';
+import axios from '../util';
 
 const styles = StyleSheet.create({
   header: {
@@ -52,6 +53,15 @@ class SearchResultsPageContainer extends Component {
             </View>
             <View style={{padding: 10}}>
                 <Text>Take a look at these trips</Text>
+                <Text>{
+                  axios.get('./users?ID=PG8cvdQQfEOsxDsA0TIiN1Ic3KQ2')
+                  .then(function (response) {
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  });
+                }</Text>
             </View>
           </View>
         </Modal>

@@ -7,11 +7,9 @@ import { StyleSheet, View, Text, ScrollView, TouchableHighlight, Image } from 'r
 import { Icon } from 'react-native-elements';
 import { Tile } from './Tile.js';
 import { connect } from 'react-redux';
+import axios from '../util';
 
 class SavedLocPageContainer extends Component {
-	state = { //mock info
-
-	}
     render() {
         return (
       		<View style = {styles.container}>
