@@ -3,41 +3,37 @@
 */
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableHighlight, Image } from 'react-native'; 
+import { StyleSheet, View, Text, ScrollView, TouchableHighlight, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { Tile } from './Tile.js';
-class SavedLocPage extends Component {
-	state = { //mock info 
-	  locations: [
-	  {Id: 'Generate', 'Info': ['locationName':'New York, New York', 'departureDate': 'June, 19, 2018', 'transportationMode': 'Plane']},
-      {Id: 'Generate1', 'Info': ['locationName':'Michigan, Allendale', 'departureDate': 'September, 23, 2056', 'transportationMode': 'Car']},
-	  ]
+import { connect } from 'react-redux';
+
+class SavedLocPageContainer extends Component {
+	state = { //mock info
+
 	}
     render() {
-        return ( 
+        return (
       		<View style = {styles.container}>
               <View style = {styles.itemTagWrapper}>
 
               <ScrollView>
-               {
-
-                this.state.locations.map((item, index) ⇒ (
-
-              	<Tile>
-                  <View style = {styles.imageWrapper}>
-              	    <Image
-      			      style={styles.circle}
-       			      source={require('./Michigan.png')} // get request for image tied to location name
-    			    />
-      			    <Text style = {styles.LocTag}>{item.Info.LocationName}</Text>
-      			    <Text style = {styles.infoTag}>{item.Info.departureDate}</Text>
-      			    <Text style = {styles.infoTag}>{item.Info.transportaionMode}</Text>
-      			  </View>
-      		    </Tile>
-
-
-      		   }
-      		  </ScrollView>
+              	{
+                	this.props.locations.map(item => (
+		              	<Tile key={item.Id}>
+		                  <View style = {styles.imageWrapper}>
+		              	    <Image
+		      			      		style={styles.circle}
+		       			      		source={require('./Michigan.png')} // get request for image tied to location name
+		    			    			/>
+		      			    		<Text style = {styles.LocTag}>{item.Info.locationName}</Text>
+		      			    		<Text style = {styles.infoTag}>{item.Info.departureDate}</Text>
+		      			    		<Text style = {styles.infoTag}>{item.Info.transportationMode}</Text>
+		      			  		</View>
+		      		    	</Tile>
+									))
+      		  		}
+      		  	</ScrollView>
 
             </View >
        	  </View >
@@ -53,7 +49,7 @@ class SavedLocPage extends Component {
         justifyContent: 'center'
     },
     LocTag: {
-      	fontSize: 40, 
+      	fontSize: 40,
         color: "#FFCA28",
     },
     itemTagWrapper:{
@@ -72,9 +68,24 @@ class SavedLocPage extends Component {
         alignItems: 'center',
     },
     infoTag: {
-      	fontSize: 20, 
+      	fontSize: 20,
         color: "#C8C8C8",
     },
  });
-  
+
+ const mapStateToProps = (state) => {
+   return {
+     locations: state.locations
+   };
+ };
+
+ const mapDispatchToProps = (dispatch) => ({
+
+ });
+
+const SavedLocPage = connect (
+	mapStateToProps,
+	mapDispatchToProps)(SavedLocPageContainer);
+
+
 export default SavedLocPage;
