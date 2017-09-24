@@ -86,7 +86,7 @@ class SearchResultsPageContainer extends Component {
   }
 
   actuallyRenderTrips() {
-        if (this.state.trips && this.state.trips.length > 0) {
+        if (this.state.trips && this.state.trips.length > 0)  {
           return this.state.trips.map((key, index) => (
             <ScrollView>
               <Tile key={index}>
@@ -96,12 +96,8 @@ class SearchResultsPageContainer extends Component {
               </Tile>
             </ScrollView>
           ));
-
-        } else {
-            // return <Text>die please</Text>;
-        }
-      //  return <Text>{JSON.stringify(this.state.trips)}</Text>;
     }
+  }
 
   render() {
     return (

@@ -5,11 +5,11 @@ import { Icon, SocialIcon } from 'react-native-elements';
 import {setShareTripPageVisible} from '../actions/index.js';
 import { MyButton } from './MyButton.js';
 import { CircleTile } from './CircleTile.js';
-class ShareModal extends Component {
 
+class ShareModal extends Component {
 render(){
 	return(
-		<View style={{marginTop: 22}}>	
+		<View style={{marginTop: 30}}>	
 			<Modal
         animationType={"slide"}
         transparent={false}
@@ -28,26 +28,39 @@ render(){
                   color="white"
               />
           </TouchableOpacity>
-            <Text style={styles.headerText}>SharePage</Text>
+            <Text style={styles.headerText}>Share Your Trip</Text>
         </View>
-          <View>
-            <SocialIcon
-                  type={"twitter"}
+          <View styke={styles.Justify2}>
+
+            <TouchableOpacity  onPress={this._onPressButton}>
+              <SocialIcon
+               type={"twitter"}
               />
-            <SocialIcon
+            </TouchableOpacity>
+          
+            <TouchableOpacity  onPress={this._onPressButton}>
+              <SocialIcon
                 type={"facebook"}
-            />
-            <CircleTile style={styles.color1}>
-            <Icon style={styles.Justify}
-                name={"mail"}
-                size={20}
-                color='white'/>
-            </CircleTile>
+              />
+            </TouchableOpacity>
+
+            <TouchableOpacity  onPress={this._onPressButton}>
+              <CircleTile style={styles.color1}>
+                <Icon 
+                  style={styles.Justify}
+                  name={"mail"}
+                  size={20}
+                  color='white'/>
+              </CircleTile>
+            </TouchableOpacity>
+
           </View>
         </View>
+
       </Modal>
+      
       <View>
-        <MyButton >
+        <MyButton style={styles.Justify}>
           <TouchableOpacity onPress={() => {this.props.displayShareTripPageVisible()}}>
             <Icon
               name={"more"}
@@ -58,6 +71,7 @@ render(){
           </TouchableOpacity>
         </MyButton >
       </View>
+
     </View>
 		);
 }
@@ -82,6 +96,12 @@ const styles = StyleSheet.create({
   Justify:{
     justifyContent: 'center',
     alignItems: 'center',
+    },
+  Justify2:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
     },
 });
 
