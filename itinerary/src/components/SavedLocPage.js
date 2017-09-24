@@ -31,7 +31,6 @@ class SavedLocPageContainer extends Component {
 		      			    <Text style = {styles.infoTag}>{item.Info.transportationMode}</Text>
 		      			  </View>
 		      			  <View style = {styles.Justify}>
-		      			    
 		      			    <MyButton >
 		      			    <TouchableOpacity onPress={this._onPressButton}>
 		      			      <Icon
@@ -42,8 +41,8 @@ class SavedLocPageContainer extends Component {
                 		  />
                 		  </TouchableOpacity>
                     </MyButton >
-                <ShareTripPageVisible/>
-                		  </View>
+                    <ShareTripPageVisible/>
+                  </View>
 		      		    </Tile>
 					))
       		  	  }
