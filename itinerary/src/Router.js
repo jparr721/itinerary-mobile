@@ -27,8 +27,7 @@
        }
      },
  
-     // Place the definition of your screen here, following the
-     // model above
+     
      SavedLocPage:{
       screen: SavedLocPage,
       path: '',
