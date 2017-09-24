@@ -6,6 +6,9 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextInput, Image, Button } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { SearchResultsPage } from './SearchResultsPage';
+import { width, height, totalSize } from 'react-native-dimension';
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -49,6 +52,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingBottom: 50
   },
+  imageSetUp: {
+    width: width(75),
+    height: height(15),
+    }
 
 });
 
@@ -57,7 +64,7 @@ class MainSearchPage extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.titleWrapper}>
-          <Text style={styles.title}>Itinerary</Text>
+          <Image style={styles.imageSetUp}source={require('./Asset1.png')}/>
         </View>
         <View style={styles.inputRow}>
           <Text style={styles.textBoxHeader}>Enter a location</Text>

@@ -1,5 +1,6 @@
 export const initialState = {
   searchResultsPageModalVisible: false,
+  shareTripPageVisible: false,
   locations: [
     {Id: 'Generate', 'Info': {'locationName':'New York, New York', 'departureDate': 'June, 19, 2018', 'transportationMode': 'Plane'}},
     {Id: 'Generate1', 'Info': {'locationName':'Michigan, Allendale', 'departureDate': 'September, 23, 2056', 'transportationMode': 'Car'}},
@@ -12,6 +13,11 @@ function appReducer(state = initialState, action) {
       return {
         ...state,
         searchResultsPageModalVisible: !state.searchResultsPageModalVisible
+      };
+    case 'SET_SHARE_TRIP_PAGE_VISIBLE':
+      return{
+        ...state,
+        shareTripPageVisible: !state.shareTripPageVisible
       };
     case 'PLACE_HOLDER_ACTION':
       return {
