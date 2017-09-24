@@ -49,12 +49,10 @@ render(){
                 size={20}
                 color='white'/>
             </CircleTile>
-          </MyButton>
+           </MyButton>
           </View>
         </View>
-
       </Modal>
-      
       <View>
         <MyButton >
           <TouchableOpacity onPress={() => {this.props.displayShareTripPageVisible()}}>
@@ -67,7 +65,6 @@ render(){
           </TouchableOpacity>
         </MyButton >
       </View>
-
     </View>
 		);
 }

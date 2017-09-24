@@ -87,15 +87,13 @@ class SearchResultsPageContainer extends Component {
 
   actuallyRenderTrips() {
         if (this.state.trips && this.state.trips.length > 0) {
-          return this.state.trips.map((key, index) => (
-            <ScrollView>
-              <Tile key={index}>
-                <Text style = {styles.LocTag}>{this.state.trips[index].trip.name}</Text>
-                <Text style = {styles.infoTag}>{this.state.trips[index].trip.start_date}</Text>
-                <Text style = {styles.infoTag}>${this.state.trips[index].trip.price}</Text>
+          return (//this.state.trips.map((key, index) => (
+              <Tile key={0}>
+                <Text style = {styles.LocTag}>{this.props.searchLocation}</Text>
+                <Text style = {styles.infoTag}>{this.props.searchDate}</Text>
+                <Text style = {styles.infoTag}>${this.props.searchBudget}</Text>
               </Tile>
-            </ScrollView>
-          ));
+          );//));
 
         } else {
             // return <Text>die please</Text>;
@@ -129,9 +127,9 @@ class SearchResultsPageContainer extends Component {
               </TouchableOpacity>
               <Text style={styles.headerText}>Trips</Text>
             </View>
-            <View style={{padding: 10}}>
+            <ScrollView style={{padding: 10}}>
                 {this.actuallyRenderTrips()}
-            </View>
+            </ScrollView>
           </View>
         </Modal>
         <View style={styles.submitButton}>
@@ -149,6 +147,9 @@ class SearchResultsPageContainer extends Component {
 
 const mapStateToProps = (state) => {
   return {
+    searchLocation: state.searchLocation,
+    searchDate: state.searchDate,
+    searchBudget: state.searchBudget,
     searchResultsPageModalVisible: state.searchResultsPageModalVisible
   };
 };
