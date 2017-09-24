@@ -7,8 +7,8 @@ import { Text, View, StyleSheet, TextInput, Image, Button } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { SearchResultsPage } from './SearchResultsPage';
 import { width, height, totalSize } from 'react-native-dimension';
-
-
+import { setUpdatedLocation, setUpdatedDate, setUpdatedBudget } from  '../actions';
+import { connect } from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
 
 });
 
-class MainSearchPage extends Component {
+class MainSearchPageContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -68,18 +68,24 @@ class MainSearchPage extends Component {
         </View>
         <View style={styles.inputRow}>
           <Text style={styles.textBoxHeader}>Enter a location</Text>
-          <TextInput style={styles.textBox} placeholder="e.g. North Dakota"
-            underlineColorAndroid="white"/>
+          <TextInput style={styles.textBox}
+            placeholder="e.g. North Dakota"
+            underlineColorAndroid="white"
+            onChangeText ={(text) => this.props.setNewLocation(text)} />
         </View>
         <View style={styles.inputRow}>
           <Text style={styles.textBoxHeader}>When are you leaving?</Text>
-          <TextInput style={styles.textBox} placeholder="e.g. 10/01/2017"
-            underlineColorAndroid="white"/>
+          <TextInput style={styles.textBox}
+            placeholder="e.g. 10/01/2017"
+            underlineColorAndroid="white"
+            onChangeText ={(text) => this.props.setNewDate(text)}/>
         </View>
         <View style={styles.inputRow}>
           <Text style={styles.textBoxHeader}>What is your budget?</Text>
-          <TextInput style={styles.textBox} placeholder="e.g. 2000"
-            underlineColorAndroid="white"/>
+          <TextInput style={styles.textBox}
+            placeholder="e.g. 2000"
+            underlineColorAndroid="white"
+            onChangeText ={(text) => this.props.setNewBudget(text)}/>
         </View>
 
         <SearchResultsPage />
@@ -110,5 +116,26 @@ class MainSearchPage extends Component {
   }
 }
 
-export default MainSearchPage;
+const mapStateToProps = (state) => {
+  return {
+    searchLocation: state.searchLocation
+  };
+};
 
+const mapDispatchToProps = (dispatch) => ({
+  setNewLocation(text) {
+    dispatch(setUpdatedLocation(text));
+  },
+  setNewDate(text) {
+    dispatch(setUpdatedDate(text));
+  },
+  setNewBudget(text) {
+    dispatch(setUpdatedBudget(text));
+  },
+});
+
+const MainSearchPage = connect (
+  mapStateToProps,
+  mapDispatchToProps)(MainSearchPageContainer);
+
+export { MainSearchPage }

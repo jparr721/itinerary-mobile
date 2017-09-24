@@ -8,8 +8,8 @@
 
  // Import Screen Files here
  // Example: import SavePage from './components/SavePage';
- import MainSearchPage from './components/MainSearchPage'
- import SavedLocPage from './components/SavedLocPage'
+ import { MainSearchPage } from './components/MainSearchPage.js'
+ import  SavedLocPage  from './components/SavedLocPage.js'
 
  const Router = TabNavigator(
    {
@@ -26,14 +26,14 @@
          ),
        }
      },
- 
-     
+
+
      SavedLocPage:{
       screen: SavedLocPage,
       path: '',
       navigationOptions: {
         tabBarIcon: ({tintColor}) => (
-          <Icon 
+          <Icon
            name="folder-multiple"
            type="material-community"
            size={28}
