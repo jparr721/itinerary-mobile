@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 
-const Tile = (props) => {
+const CircleTile= (props) => {
   return (
     <View style={styles.containerStyle}>
       
@@ -13,18 +13,19 @@ const Tile = (props) => {
 
 const styles = StyleSheet.create({
   containerStyle: {
-    borderRadius: 2,
-    borderColor: '#ddd',
-    backgroundColor: 'white',
-    borderBottomWidth: 0,
+    height: 50,
+    width: 50,
     margin: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 3,
-    padding:40,
+    borderRadius: 30,
+    padding: 15,
+    backgroundColor:"#FF3014"
   },
+    
 });
 
-export { Tile };
+export { CircleTile };

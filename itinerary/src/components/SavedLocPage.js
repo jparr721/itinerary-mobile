@@ -3,37 +3,53 @@
 */
 
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, ScrollView, TouchableHighlight, Image } from 'react-native';
+import { TouchableOpacity, StyleSheet, View, Text, ScrollView, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { Tile } from './Tile.js';
 import { connect } from 'react-redux';
-import axios from '../util';
+import { MyButton } from './MyButton.js';
+import {ShareTripPageVisible} from './ShareModal.js'
 
 class SavedLocPageContainer extends Component {
+	state = { //mock info
+	}
     render() {
         return (
       		<View style = {styles.container}>
               <View style = {styles.itemTagWrapper}>
-
               <ScrollView>
-              	{
+              	  {
                 	this.props.locations.map(item => (
-		              	<Tile key={item.Id}>
+		            	<Tile key={item.Id}>
 		                  <View style = {styles.imageWrapper}>
 		              	    <Image
-		      			      		style={styles.circle}
-		       			      		source={require('./Michigan.png')} // get request for image tied to location name
-		    			    			/>
-		      			    		<Text style = {styles.LocTag}>{item.Info.locationName}</Text>
-		      			    		<Text style = {styles.infoTag}>{item.Info.departureDate}</Text>
-		      			    		<Text style = {styles.infoTag}>{item.Info.transportationMode}</Text>
-		      			  		</View>
-		      		    	</Tile>
-									))
-      		  		}
+		      			      style={styles.circle}
+		       			      source={require('./Michigan.png')} // get request for image tied to location name
+		    			    />
+		      			    <Text style = {styles.LocTag}>{item.Info.locationName}</Text>
+		      			    <Text style = {styles.infoTag}>{item.Info.departureDate}</Text>
+		      			    <Text style = {styles.infoTag}>{item.Info.transportationMode}</Text>
+		      			  </View>
+		      			  <View style = {styles.Justify}>
+		      			    
+		      			    <MyButton >
+		      			    <TouchableOpacity onPress={this._onPressButton}>
+		      			      <Icon
+                  			name={"fullscreen"}
+                  			type="material-community"
+                  			size={30}
+                  			color="#C8C8C8"
+                		  />
+                		  </TouchableOpacity>
+                    </MyButton >
+                <ShareTripPageVisible/>
+                		  </View>
+		      		    </Tile>
+					))
+      		  	  }
       		  	</ScrollView>
-
             </View >
+           
        	  </View >
         );
     }
@@ -68,6 +84,12 @@ class SavedLocPageContainer extends Component {
     infoTag: {
       	fontSize: 20,
         color: "#C8C8C8",
+    },
+    Justify:{
+    	flex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
     },
  });
 

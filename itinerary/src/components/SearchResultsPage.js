@@ -5,6 +5,8 @@ import { setSearchResultsPageModalVisible } from '../actions/index.js'
 import {connect} from 'react-redux';
 import { BASE_URL, api } from '../util';
 import { Tile } from './Tile.js'
+import { MyButton } from './MyButton.js';
+
 
 const styles = StyleSheet.create({
   header: {
@@ -46,6 +48,10 @@ const styles = StyleSheet.create({
       fontSize: 20,
       color: "#C8C8C8",
   },
+  buttonText:{
+    color: '#FFCA28',
+    fontSize: 20,
+  }
 });
 
 class SearchResultsPageContainer extends Component {
@@ -129,11 +135,11 @@ class SearchResultsPageContainer extends Component {
           </View>
         </Modal>
         <View style={styles.submitButton}>
-          <Button
-            onPress={() => {this.props.displaySeacrhResultsModal()}}
-            title="Find a trip"
-            color='#FFCA28'
-          />
+          <TouchableOpacity onPress={() => {this.props.displaySeacrhResultsModal()}}>
+            <MyButton >
+              <Text style={styles.buttonText}>Find Trips</Text>
+            </MyButton>
+          </TouchableOpacity>
         </View>
       </View>
 
