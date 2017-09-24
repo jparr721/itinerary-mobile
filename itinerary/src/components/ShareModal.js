@@ -31,18 +31,25 @@ render(){
             <Text style={styles.headerText}>SharePage</Text>
         </View>
           <View>
+          <MyButton>
             <SocialIcon
-                  type={"twitter"}
-              />
+              type={"twitter"}
+            />
+          </MyButton>
+          <MyButton>
             <SocialIcon
                 type={"facebook"}
             />
+          </MyButton>
+          <MyButton>
             <CircleTile style={styles.color1}>
-            <Icon style={styles.Justify}
+              <Icon 
+                style={styles.Justify}
                 name={"mail"}
                 size={20}
                 color='white'/>
             </CircleTile>
+
           </View>
         </View>
       </Modal>
